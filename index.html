@@ -9,7 +9,21 @@
     <script src="game.js" defer></script>
   </head>
   <body>
-    <button id="reset-game">Game Reset</button>
+    <div class="change-name-buttons">
+      <button id="first-name-button">Change Name</button>
+      <button id="second-name-button">Change Name</button>
+    </div>
+
+    <div class="players">
+      <label id="firstPlayer">Player1</label>
+      <label id="secondPlayer">Player2</label>
+    </div>
+    <div class="scores">
+      <label id="X">0</label>
+      <label id="O">0</label>
+    </div>
+    <button id="play-again">Play again</button>
+
     <div class="board">
       <div class="row">
         <div class="cell" id="00"></div>
@@ -26,6 +40,10 @@
         <div class="cell" id="21"></div>
         <div class="cell" id="22"></div>
       </div>
+    </div>
+    <div class="footer">
+      <button id="reset-board">Reset Game</button>
+      <div class="winning-message"></div>
     </div>
   </body>
 </html>

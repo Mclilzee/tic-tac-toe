@@ -1,7 +1,7 @@
-const gameBoard = GameBoard("Emad", "Rama");
+const gameBoard = GameBoard();
 
-document.getElementById("reset-game").addEventListener("click", () => {
-  gameBoard.resetGame();
+document.getElementById("play-again").addEventListener("click", () => {
+  gameBoard.playAgain();
 });
 
 document.querySelectorAll(".cell").forEach((cell) => {
@@ -14,9 +14,23 @@ document.querySelectorAll(".cell").forEach((cell) => {
   });
 });
 
-function GameBoard(player1, player2) {
-  const firstPlayer = { name: player1, icon: "X" };
-  const secondPlayer = { name: player2, icon: "O" };
+document.querySelector("#first-name-button").addEventListener("click", () => {
+  const name = prompt("Choose your player name");
+  gameBoard.setFirstName(name);
+});
+
+document.querySelector("#second-name-button").addEventListener("click", () => {
+  const name = prompt("Choose your player name");
+  gameBoard.setSecondName(name);
+});
+
+document.querySelector("#reset-board").addEventListener("click", () => {
+  gameBoard.resetBoard();
+});
+
+function GameBoard() {
+  const firstPlayer = { name: "Player1", icon: "X", score: 0 };
+  const secondPlayer = { name: "Player2", icon: "O", score: 0 };
   let currentPlayer = secondPlayer;
   let game = [new Array(3), new Array(3), new Array(3)];
   let winner = null;
@@ -82,8 +96,7 @@ function GameBoard(player1, player2) {
   };
 
   callWinner = function () {
-    const label = document.createElement("div");
-    label.classList.add("winning-message");
+    const label = document.querySelector(".winning-message");
 
     if (winner === "draw") {
       label.textContent = "Nobody wins, game is a Draw";
@@ -91,10 +104,11 @@ function GameBoard(player1, player2) {
       label.textContent = currentPlayer.name + " has Won the game!";
     }
 
-    document.body.appendChild(label);
+    currentPlayer.score++;
+    document.querySelector(`#${currentPlayer.icon}`).textContent++;
   };
 
-  resetGame = function () {
+  playAgain = function () {
     document.querySelectorAll(".cell").forEach((cell) => {
       cell.textContent = "";
     });
@@ -103,9 +117,27 @@ function GameBoard(player1, player2) {
     game = [new Array(3), new Array(3), new Array(3)];
     winner = null;
     gameState = 0;
-    const label = document.querySelector(".winning-message");
-    document.body.removeChild(label);
+    document.querySelector(".winning-message").textContent = "";
   };
 
-  return { play, resetGame };
+  setFirstName = function (name) {
+    firstPlayer.name = name;
+    document.querySelector("#firstPlayer").textContent = name;
+  };
+
+  setSecondName = function (name) {
+    secondPlayer.name = name;
+    document.querySelector("#secondPlayer").textContent = name;
+  };
+
+  resetBoard = function () {
+    playAgain();
+    firstPlayer.score = 0;
+    secondPlayer.score = 0;
+
+    document.getElementById("X").textContent = 0;
+    document.getElementById("O").textContent = 0;
+  };
+
+  return { play, playAgain, setFirstName, setSecondName, resetBoard };
 }

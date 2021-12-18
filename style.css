@@ -25,6 +25,7 @@ body {
   justify-content: center;
   align-content: center;
   border: solid black;
+  margin-bottom: 90px;
 }
 
 .row {
@@ -32,26 +33,31 @@ body {
 }
 
 .cell {
-  height: 250px;
-  width: 250px;
+  height: 200px;
+  width: 200px;
   flex: auto;
   border: solid black;
   text-align: center;
-  line-height: 230px;
+  line-height: 210px;
   font-stretch: ultra-expanded;
-  font-size: 300px;
+  font-size: 250px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
-  height: 40px;
-  width: 120px;
   border: none;
+  color: white;
+  background-color: rgb(143, 195, 229);
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+#play-again {
   font-size: 18px;
   font-weight: bolder;
-  color: white;
-  background-color:rgb(143, 195, 229);
-  cursor: pointer;
+  height: 40px;
+  width: 120px;
+  margin-bottom: 25px
 }
 
 div {
@@ -61,4 +67,45 @@ div {
 .winning-message {
   font-size: 30px;
   color: green;
+  height: 50px;
+  padding-left: 500px;
 }
+
+.players {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+  font-size: 30px;
+}
+
+.scores {
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+  font-size: 30px;
+}
+
+.change-name-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+#first-name-button,
+#second-name-button {
+  font-size: 15px;
+  width: 120px;
+  height: 20px;
+}
+
+.footer {
+  display: flex;
+  width: 1500px;
+}
+
+#reset-board {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+
