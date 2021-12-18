@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  flex-direction: column;
   height: 100%;
   width: 100%;
   flex: auto;
@@ -24,6 +25,7 @@ body {
   justify-content: center;
   align-content: center;
   border: solid black;
+  margin-bottom: ;
 }
 
 .row {
@@ -40,4 +42,20 @@ body {
   font-stretch: ultra-expanded;
   font-size: 300px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  height: 40px;
+  width: 120px;
+  border: none;
+  font-size: 18px;
+  font-weight: bolder;
+  color: white;
+  background-color:rgb(143, 195, 229);
+  cursor: pointer;
+  margin: 40px;
+}
+
+div {
+  cursor: pointer;
 }
