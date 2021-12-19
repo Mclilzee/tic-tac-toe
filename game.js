@@ -78,10 +78,10 @@ function GameBoard() {
     if (
       (currentPlayer.icon === game[0][0] &&
         game[0][0] === game[1][1] &&
-        game[2][2]) ||
+        game[1][1] === game[2][2]) ||
       (currentPlayer.icon === game[0][2] &&
         game[0][2] === game[1][1] &&
-        game[2][0])
+        game[1][1] === game[2][0])
     ) {
       winner = currentPlayer.name;
       callWinner();
